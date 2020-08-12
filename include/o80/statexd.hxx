@@ -158,6 +158,14 @@ StateXd<Args...>::StateXd()
 }
 
 template <typename... Args>
+std::tuple<Args...>
+StateXd<Args...>::get() const
+{
+  return values_;
+}
+
+
+template <typename... Args>
 template <int INDEX>
 typename std::tuple_element<INDEX, std::tuple<Args...>>::type
 StateXd<Args...>::get() const
@@ -171,7 +179,7 @@ void StateXd<Args...>::set(
     typename std::tuple_element<INDEX, std::tuple<Args...>>::type value)
 {
     std::get<INDEX>(values_) = value;
-}
+    }
 
 template<typename... Args>
 void StateXd<Args...>::set(Args ... args)
@@ -181,7 +189,7 @@ void StateXd<Args...>::set(Args ... args)
 }
 
 template<typename ... Args>
-std::string StateXd<Args...>::to_string()
+std::string StateXd<Args...>::to_string() const
 {
   std::stringstream stream;
   internal::to_string(stream,values_);

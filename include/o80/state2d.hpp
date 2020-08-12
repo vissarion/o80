@@ -1,5 +1,6 @@
 #pragma once
 
+#include <array>
 #include "o80/statexd.hpp"
 
 namespace o80

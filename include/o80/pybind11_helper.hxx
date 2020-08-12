@@ -35,9 +35,9 @@ void create_core_python_bindings(pybind11::module& m,
         pybind11::class_<o80_STATE>(m,
                                     (pybind11_config.prefix + "State").c_str())
             .def(pybind11::init<>())
-            .def("get", &o80_STATE::get)
-            .def("set", &o80_STATE::set)
-            .def("to_string", &o80_STATE::to_string);
+	  .def("to_string", &o80_STATE::to_string)
+	.def("get", &o80_STATE::get);
+	//.def("set", &o80_STATE::set);
     }
 
     if (pybind11_config.extended_state)

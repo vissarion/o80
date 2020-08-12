@@ -29,14 +29,16 @@ public:
     template <int INDEX>
     typename std::tuple_element<INDEX, std::tuple<Args...> >::type get() const;
 
-    /*! set the INDEXth attribute */
-    template <int INDEX>
-    void set(
-	      typename std::tuple_element<INDEX, std::tuple<Args...> >::type value);
+  std::tuple<Args...> get() const;
+  
+  /*! set the INDEXth attribute */
+  template <int INDEX>
+  void set(
+	   typename std::tuple_element<INDEX, std::tuple<Args...> >::type value);
 
     void set(Args ... args);
 
-  std::string to_string();
+  std::string to_string() const;
   
     /*! returns true if the speed command finished for the attribute
      *  at the first (0) index
